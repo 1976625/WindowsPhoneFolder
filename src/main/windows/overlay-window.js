@@ -1,8 +1,7 @@
 'use strict';
 
 // 浮层窗：该显示器全屏、置顶。
-// 默认 capture 模式：不透明窗口 + 渲染层铺抓屏图（CSS blur + 压暗），避免透明窗 + DWM 材质的兼容坑。
-// PF_BG=acrylic 时退化为透明 + DWM acrylic（实验用）。
+// 透明窗口 + 渲染层自带壁纸模糊/压暗（transparent 全模式开启，避免首次 show 出现黑底闪烁）。
 const path = require('path');
 const { BrowserWindow, screen } = require('electron');
 const {
@@ -47,8 +46,10 @@ class OverlayWindow {
       width: b.width,
       height: b.height,
       frame: false,
-      transparent: acrylic,
-      backgroundColor: acrylic ? '#00000000' : '#0b0b10',
+      // 全模式透明：首次 show 时窗口还没有内容，透明只会露出桌面，不会先闪一块黑色；
+      // 模糊壁纸/压暗/面板由渲染层随后绘制。
+      transparent: true,
+      backgroundColor: '#00000000',
       show: false,
       skipTaskbar: true,
       alwaysOnTop: true,

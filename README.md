@@ -98,7 +98,7 @@ drag and drop file organizer
 | v0.7 收纳位置 | ✅ 完成 | 收纳文件夹移出桌面（放到桌面同级，如同盘 `D:\手机文件夹`）；旧隐藏目录自动迁移清空 |
 | v0.7.1 图标修复 | ✅ 完成 | `.lnk` / `.exe` 显示真实软件图标 |
 | v0.8 交互细节 | ✅ 完成 | 修复 hover 顶部裁切、瓦片大小真正生效；点浮层标题重命名；面板隐藏 `.lnk` 后缀 |
-| v0.10–v0.12 | ✅ 完成 | 拖出改为 pointer 触发原生拖拽；桌面级瓦片（Progman 子窗口）；v0.12.2 修复桌面级瓦片偶尔不显示 / 被遮挡停止绘制 / 鼠标输入丢失 |
+| v0.10–v0.12 | ✅ 完成 | 拖出改为 pointer 触发原生拖拽；桌面级瓦片（Progman 子窗口）；v0.12.2 修复桌面级瓦片偶尔不显示 / 被遮挡停止绘制 / 鼠标输入丢失；v0.12.3 浮层窗口改为透明（首次打开不再黑屏闪一下） |
 
 - 开发计划与阶段记录保存在本地 `docs/` 目录（不纳入仓库）。
 
@@ -106,16 +106,16 @@ drag and drop file organizer
 
 | 产物 | 大小 | 用法 |
 |---|---|---|
-| `release/PhoneFolder-0.12.2-setup.exe` | 102.8 MB | 安装版：双击安装（当前用户，无需管理员），自动创建桌面/开始菜单快捷方式 |
-| `release/PhoneFolder-0.12.2-portable.exe` | 93.6 MB | 双击即用（自解压到临时目录运行） |
-| `release/PhoneFolder-0.12.2-win.zip` | 133.1 MB | 解压后运行 `win-unpacked/PhoneFolder.exe` |
+| `release/PhoneFolder-0.12.3-setup.exe` | 102.8 MB | 安装版：双击安装（当前用户，无需管理员），自动创建桌面/开始菜单快捷方式 |
+| `release/PhoneFolder-0.12.3-portable.exe` | 93.6 MB | 双击即用（自解压到临时目录运行） |
+| `release/PhoneFolder-0.12.3-win.zip` | 133.1 MB | 解压后运行 `win-unpacked/PhoneFolder.exe` |
 
-- SHA-256 前 16 位：setup `9ED346B012799BCD` · portable `72C02DF11191249A` · zip `5AC45B8CA45AEBDB`
+- SHA-256 前 16 位：setup `5114F98686666E0F` · portable `D9278F0636BA61EA` · zip `F6AF906FBB037273`
 - 未签名，首次运行 SmartScreen 提示 → 「更多信息 → 仍要运行」
 - 配置目录：`%APPDATA%\phone-folder\config.json`
 
 > 本机注意：项目 `release/` 目录继承了当前会话的沙箱 ACL，直接在里面运行 EXE 会启动失败（没反应）。
-> 当前版本已解压部署到 `D:\PhoneFolder\PhoneFolder-0.12.2`，桌面快捷方式与开机自启都指向它。
+> 当前版本已解压部署到 `D:\PhoneFolder\PhoneFolder-0.12.3`，桌面快捷方式与开机自启都指向它。
 
 ## 默认行为：空瓦片 + 收纳 / Default Behavior: Empty Tile + Storage Folder
 
@@ -234,6 +234,7 @@ PhoneFolder – desktop folder organizer
 PhoneFolder – file storage box for Windows
 
 PhoneFolder – phone-style folder tile for desktop organization
+
 
 
 
