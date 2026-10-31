@@ -36,7 +36,7 @@ body {
 .tile.dragging .thumbs {
   transform: scale(1.03);
   background: transparent;
-  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), inset 0 0 24px rgba(0, 0, 0, 0.14);
 }
 
 .thumbs {
@@ -49,10 +49,10 @@ body {
   grid-template-rows: 1fr 1fr;
   gap: calc(var(--tile-size) * 0.07);
   border-radius: calc(var(--tile-size) * 0.24);
-  /* 透明底、无外阴影；盒子内部用 inset 阴影做交互反馈 */
+  /* 透明底、无外阴影；常驻一层很淡的 inset 内阴影，hover/按下/拖动时再加深 */
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 0 20px rgba(0, 0, 0, 0.10);
   /* 关键：放大动画以顶边为原点，避免窗口顶部被裁掉（hover 时顶部缺一块） */
   transform-origin: center top;
   transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1), background 160ms ease, box-shadow 160ms ease;
@@ -61,7 +61,7 @@ body {
 .tile:hover .thumbs {
   transform: scale(1.03);
   background: transparent;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), inset 0 0 22px rgba(0, 0, 0, 0.16);
 }
 
 .tile:hover .thumb {
@@ -70,7 +70,7 @@ body {
 
 .tile.pressed .thumbs {
   transform: scale(0.95);
-  box-shadow: inset 0 3px 12px rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0 3px 14px rgba(0, 0, 0, 0.22);
 }
 
 .tile.pressed .thumb {
@@ -146,15 +146,15 @@ body {
   text-overflow: ellipsis;
 }
 
-/* 空瓦片：只保留一圈玻璃边缘用于拖入提示，不加背景/外阴影 */
+/* 空瓦片：只保留玻璃边缘，常驻一层很淡内阴影 */
 .thumbs.empty {
   border: 1px solid rgba(255, 255, 255, 0.28);
   background: transparent;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24), inset 0 0 20px rgba(0, 0, 0, 0.10);
 }
 
 .tile.drag-over .thumbs.empty {
   border-color: rgba(150, 220, 255, 0.85);
-  box-shadow: inset 0 0 0 2px rgba(150, 220, 255, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  box-shadow: inset 0 0 0 2px rgba(150, 220, 255, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.24), inset 0 0 20px rgba(0, 0, 0, 0.10);
 }
 
